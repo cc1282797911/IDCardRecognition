@@ -1,0 +1,33 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "com.arseeds.idcard"
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        android {
+            defaultConfig {
+                ndk {
+                    //abiFilters 'armeabi-v7a', 'x86', 'armeabi', 'x86_64', 'arm64-v8a'
+                    abiFilters 'armeabi-v7a'
+                }
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.squareup.okhttp3:okhttp:3.8.1'
+    implementation 'org.jsoup:jsoup:1.8.3'
+    implementation 'com.rmtheis:tess-two:6.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+}
